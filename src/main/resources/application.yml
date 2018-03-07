@@ -1,0 +1,66 @@
+server:
+  port: 5700
+  contextPath: /
+  session:
+      timeout: 1200
+
+spring:
+  application:
+    name: rsi-neo4j
+     
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+  datasource:
+    name: master
+    url: jdbc:postgresql://119.15.137.118:5432/rsi
+    username: readonly
+    password: '!QAZ2wsx#EDC8111'
+    driver-class-name: org.postgresql.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://192.168.0.81:3306/datamart?useSSL=false&autoReconnect=true&sessionVariables=FOREIGN_KEY_CHECKS=0&useUnicode=yes&characterEncoding=UTF-8
+#    username: root
+#    password: 123456
+#    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://192.168.0.81:8066/datamart?useSSL=false&autoReconnect=true&sessionVariables=FOREIGN_KEY_CHECKS=0&useUnicode=yes&characterEncoding=UTF-8
+#    username: rsi
+#    password: 123456
+#    url: jdbc:mysql://119.15.137.115:3306/datamart?useSSL=false&autoReconnect=true&sessionVariables=FOREIGN_KEY_CHECKS=0&useUnicode=yes&characterEncoding=UTF-8
+#    username: rainsome
+#    password: 'RSi!##!20171225'
+#   type: com.zaxxer.hikari.HikariDataSource    
+
+#   配置初始化大小、最小、最大
+    initialSize: 5
+    minIdle: 3
+    maxActive: 10
+#   配置获取连接等待超时的时间
+    maxWait: 10000
+#   配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+#   配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    
+    testWhileIdle: true
+#   这里建议配置为TRUE，防止取到的连接不可用
+    testOnBorrow: true
+    testOnReturn: false
+#   关闭PSCache
+    poolPreparedStatements: false
+#   验证连接有效与否的SQL，不同的数据配置不同
+    validationQuery: select 1
+
+#Neo4j配置
+  data:
+    neo4j:
+      username: neo4j
+      password: 123456
+      uri: http://master:7474
+
+mybatis:
+    config-location: classpath:mybatis-config.xml
+    mapper-locations: classpath:mybatis/mapper/*.xml

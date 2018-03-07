@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+ 	<settings>
+ 	    <!-- 缓存 -->
+		<!-- <setting name="cacheEnabled" value="false"/> -->
+		<!-- 打印查询语句 -->
+		<!-- STDOUT_LOGGING | NO_LOGGING -->
+		<setting name="logImpl" value="NO_LOGGING"/>
+	</settings>
+</configuration>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rsi.mysql.mapper.TopicalMapper" >
+
+    <select id="findQuotes" parameterType="map" resultType="map">
+        select
+            t1.std_no,
+            t1.std_id,
+            t1.std_caption as std_name,
+            quote_no,
+            quote_name
+        from std_topical t1 join etl.tmp_std_replace_quote t2 on t1.std_no = t2.std_no
+        where t1.std_no in (2848,22262)
+    </select>
+
+</mapper>
